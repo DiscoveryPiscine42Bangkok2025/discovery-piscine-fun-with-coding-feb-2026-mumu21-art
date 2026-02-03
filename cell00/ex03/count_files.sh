@@ -1,1 +1,1 @@
-ls -l | grep -v "^total" | wc -l
+find . -maxdepth 1 ! -name "." ! -name ".*" | wc -l
