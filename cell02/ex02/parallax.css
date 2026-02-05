@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Comic Sans MS", sans-serif;
+}
+
+/* parallax section */
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+/*  */
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.parallax h1 {
+  position: relative;
+  font-size: 3.5rem;
+  padding: 20px 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* background images */
+.bg1 {
+  background-image: url("bg1.jpg");
+}
+
+.bg2 {
+  background-image: url("bg2.jpg");
+}
+
+/* ตรงกลางนะ */
+.content {
+  height: 300px;
+  background: linear-gradient(135deg, #70dbe1, #ca79a6);
+  color: #000000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content p {
+  font-size: 1.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
