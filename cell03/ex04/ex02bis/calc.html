@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>It's over 9000</title>
+
+  <!-- jQuery (Cell 3-4) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      background: #fff7f9;
+      width: 320px;
+      padding: 28px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .calculator h2 {
+      margin-bottom: 22px;
+      color: #d67ca5;
+      font-size: 22px;
+    }
+
+    .label {
+      text-align: left;
+      font-size: 13px;
+      color: #a58c9a;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .calculator input,
+    .calculator select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #e5c7d5;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    #btn {
+      margin-top: 18px;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #f4a7b9;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #btn:hover {
+      background: #ec8fa3;
+    }
+
+    .hint {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #a58c9a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="calculator">
+    <h2>🧮 เครื่องคิดเลข</h2>
+
+    <div class="label">ตัวเลขที่ 1</div>
+    <input type="text" id="left" placeholder="0">
+
+    <div class="label">เครื่องหมาย</div>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">−</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+      <option value="%">%</option>
+    </select>
+
+    <div class="label">ตัวเลขที่ 2</div>
+    <input type="text" id="right" placeholder="0">
+
+    <input type="submit" id="btn" value="Try me!">
+
+    <div class="hint">ระบบจะแจ้งเตือนทุก 30 วินาที</div>
+  </div>
+
+  <script>
+    // แจ้งเตือนทุก 30 วินาที (เหมือนของเดิม)
+    setInterval(function () {
+      alert("Please, use me...");
+    }, 30000);
+
+    // กดปุ่ม Try me!
+    $("#btn").click(function () {
+
+      const left = parseInt($("#left").val());
+      const right = parseInt($("#right").val());
+      const op = $("#operator").val();
+
+      if (
+        isNaN(left) || isNaN(right) ||
+        left < 0 || right < 0
+      ) {
+        alert("Error :(");
+        return;
+      }
+
+      if ((op === "/" || op === "%") && right === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      let result;
+
+      if (op === "+") result = left + right;
+      else if (op === "-") result = left - right;
+      else if (op === "*") result = left * right;
+      else if (op === "/") result = left / right;
+      else if (op === "%") result = left % right;
+
+      alert(result);
+      console.log(result);
+    });
+  </script>
+
+</body>
+</html>
