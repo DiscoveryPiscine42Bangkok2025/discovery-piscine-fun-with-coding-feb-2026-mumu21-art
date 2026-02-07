@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explode this balloon</title>
+
+  <!-- jQuery (Cell 3-4) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    /* โจทย์กำหนดลักษณะของลูกโป่งมา */
+    #balloon {
+      width: 200px;                /* ขนาดเริ่มต้น 200px */
+      height: 200px;
+      background-color: red;       /* สีเริ่มต้น สีแดง */
+      border-radius: 50%;          /* ทำให้เป็นวงกลม */
+      margin: 100px auto;          /* วางไว้กลางหน้า */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ลูกโป่ง -->
+  <div id="balloon"></div>
+
+  <script>
+    // เก็บค่าขนาดของลูกโป่ง
+    let size = 200;
+
+    // สีที่ใช้วนลูป แดง เขียว น้ำเงิน
+    const colors = ["red", "green", "blue"];
+
+    // index ของสีปัจจุบัน
+    let colorIndex = 0;
+
+    // อัปเดตขนาดและสีของลูกโป่ง
+    function updateBalloon() {
+      $("#balloon").css({
+        width: size + "px",
+        height: size + "px",
+        "background-color": colors[colorIndex]
+      });
+    }
+
+    // เมื่อคลิกที่ลูกโป่ง
+    $("#balloon").click(function () {
+
+      size += 10; // คลิกแล้วลูกโป่งโตขึ้น
+      colorIndex = (colorIndex + 1) % colors.length; // เปลี่ยนสีตามลำดับ
+
+      // ถ้าใหญ่เกิน 420px ให้รีเซ็ตใหม่
+      if (size > 420) {
+        size = 200;
+        colorIndex = 0;
+      }
+
+      updateBalloon();
+    });
+
+    // เมื่อเมาส์ออกจากลูกโป่ง
+    $("#balloon").mouseleave(function () {
+
+      size -= 5; // เมาส์ออกแล้วลูกโป่งหด 5px
+
+      // ลูกโป่งไม่เล็กกว่า 200px
+      if (size < 200) {
+        size = 200;
+      }
+
+      // เปลี่ยนสีย้อนกลับ
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+
+      updateBalloon();
+    });
+  </script>
+
+</body>
+</html>

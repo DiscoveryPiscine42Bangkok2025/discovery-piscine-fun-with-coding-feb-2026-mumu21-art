@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f5fb;
+  padding: 40px;
+}
+
+/* container */
+.menu ul {
+  list-style: none;
+}
+
+/* menu */
+.main {
+  width: 220px;
+  background: #cdb4db;        
+  color: #3a2d4f;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: background 0.3s;
+}
+
+.main:hover {
+  background: #bde0fe;        
+}
+
+/* ไส้แซนด์วิช */
+.dropdown {
+  display: none;
+  margin-top: 10px;
+  background: #ffc8dd;        
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* item ด้านใน */
+.dropdown li {
+  padding: 14px;
+  color: #4a2c3a;
+  transition: background 0.25s;
+}
+
+.dropdown li:hover {
+  background: #fff1f7;        
+}
+
+/* drop-down */
+.main:hover .dropdown {
+  display: block;
+}

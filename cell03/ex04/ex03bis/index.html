@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do List</title>
+
+  <!-- jQuery (Cell 3-4) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: Arial, sans-serif;
+    }
+
+    .todo-card {
+      background: #fff7f9;
+      width: 320px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .todo-card h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #d67ca5;
+    }
+
+    #new {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: #f4a7b9;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #new:hover {
+      background: #ec8fa3;
+    }
+
+    #ft_list {
+      margin-top: 20px;
+    }
+
+    #ft_list div {
+      background: #ffffff;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: background 0.2s;
+    }
+
+    #ft_list div:hover {
+      background: #fdecef;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #a58c9a;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="todo-card">
+    <h2>📝 To Do List</h2>
+
+    <!-- ปุ่ม New  -->
+    <button id="new">New</button>
+
+    <!-- กล่องเก็บรายการ -->
+    <div id="ft_list"></div>
+
+    <div class="hint">คลิกที่รายการเพื่อลบ</div>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
